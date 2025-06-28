@@ -597,33 +597,41 @@ nav ul li a.active::after {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     gap: 0;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-color) #ddd;
 }
 
-.galerie-grid::-webkit-scrollbar {
-    height: 8px;
-}
+@media screen and (max-width: 768px) {
+    .galerie .container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    
+    .galerie-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        grid-auto-flow: row;
+        width: 100%;
+    }
 
-.galerie-grid::-webkit-scrollbar-track {
-    background: #ddd;
-    border-radius: 4px;
-}
+    .galerie-item {
+        position: relative;
+        width: 100%;
+        height: 120px;
+        min-width: initial;
+    }
 
-.galerie-grid::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color);
-    border-radius: 4px;
+    .galerie-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 .galerie-item {
     position: relative;
     overflow: hidden;
     height: 350px; /* Mărit de la 250px la 350px */
     min-width: calc(100% / 8);
-}
-.galerie-item img {
+}.galerie-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1135,68 +1143,93 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* Header & Navigation */
+    /* General scaling */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Header */
     .logo img {
         height: 60px;
     }
-    
-    /* Hero Section */
+
+    /* Hero section */
     .hero-text h1 {
-        font-size: 36px;
+        font-size: 28px;
     }
-    
+
     .hero-text p {
-        font-size: 14px;
+        font-size: 7px;
     }
-    
-    /* Services */
+
+    /* Services section */
+    .servicii-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
     .serviciu-card {
         padding: 20px;
     }
-    
-    .serviciu-icon {
-        width: 40px;
-        height: 40px;
+
+    /* Counter section */
+    .counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
-    
-    /* Gallery */
-    .galerie-item {
-        height: 200px;
+
+    .counter-number {
+        font-size: 36px;
     }
-    
+
+    /* About section */
+    .despre-features {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
     /* Testimonials */
     .testimonial-content {
         padding: 20px;
     }
-    
+
+    /* Certificates */
+    .certificari-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
     /* Contact */
-    .contact-card {
-        padding: 15px;
+    .contact-content {
+        grid-template-columns: 1fr;
     }
-    
-    .contact-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
+
+    .contact-info {
+        grid-template-columns: repeat(2, 1fr);
     }
-    
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
     /* Buttons */
     .btn {
-        padding: 8px 20px;
-        font-size: 12px;
+        padding: 10px 20px;
+        font-size: 14px;
     }
-    
-    /* Section Headers */
+
+    /* Section headers */
     .section-header h2 {
-        font-size: 24px;
+        font-size: 28px;
     }
-    
+
     .section-header h4 {
         font-size: 14px;
     }
-}
-
-@media (max-width: 576px) {
+}@media (max-width: 576px) {
     /* Even smaller screens */
     .container {
         padding: 0 15px;
