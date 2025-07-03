@@ -148,9 +148,8 @@ p {
     background-color: var(--primary-color);
     margin: 15px auto;
 }
-
 .serviciu-icon img {
-    width: 40px; /* sau orice altă dimensiune dorită */
+    width: 30px;
     height: auto;
 }
 
@@ -1143,6 +1142,13 @@ footer {
 }
 
 @media (max-width: 768px) {
+
+    .testimoniale-dots {
+        margin-bottom: 20px;
+        margin-top: 20px;
+        
+    }
+
     .about-intro-content {
         display: flex;
         flex-direction: column;
