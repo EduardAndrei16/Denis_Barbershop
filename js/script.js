@@ -26,27 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('nav');
-    
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            nav.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-            
-            // Animație pentru hamburger menu
-            const spans = this.querySelectorAll('span');
-            spans.forEach(span => span.classList.toggle('active'));
-            
-            if (this.querySelector('span').classList.contains('active')) {
-                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        });
-    }
+
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
     
     // Închide meniul la click pe link
     const navLinks = document.querySelectorAll('nav ul li a');
