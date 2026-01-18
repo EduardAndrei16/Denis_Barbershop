@@ -18,8 +18,58 @@ document.addEventListener('DOMContentLoaded', function() {
             header.classList.remove('sticky');
         }
     }
-       // Add the lightbox code here
-    window.addEventListener('scroll', toggleStickyHeader);
+       window.addEventListener('scroll', toggleStickyHeader);
+    
+       // Get lightbox elements
+       const lightbox = document.getElementById('lightbox');
+       const lightboxMediaContainer = document.querySelector('.lightbox-media-container');
+       const lightboxCaption = document.querySelector('.lightbox-caption');
+       const closeLightbox = document.querySelector('.close-lightbox');
+    
+       // Get all gallery items
+       const galleryItems = document.querySelectorAll('.galerie-item');
+    
+       // Add click event to each gallery item
+       galleryItems.forEach(item => {
+           item.addEventListener('click', function() {
+               const imageSrc = this.getAttribute('data-src');
+               const caption = this.querySelector('.galerie-info h3').textContent;
+            
+               // Clear previous content
+               lightboxMediaContainer.innerHTML = '';
+            
+               // Create and add image
+               const img = document.createElement('img');
+               img.src = imageSrc;
+               img.alt = caption;
+               lightboxMediaContainer.appendChild(img);
+            
+               // Set caption
+               lightboxCaption.textContent = caption;
+            
+               // Show lightbox
+               lightbox.style.display = 'block';
+           });
+       });
+    
+       // Close lightbox when clicking the close button
+       closeLightbox.addEventListener('click', function() {
+           lightbox.style.display = 'none';
+       });
+    
+       // Close lightbox when clicking outside the content
+       lightbox.addEventListener('click', function(e) {
+           if (e.target === lightbox) {
+               lightbox.style.display = 'none';
+           }
+       });
+    
+       // Close lightbox with Escape key
+       document.addEventListener('keydown', function(e) {
+           if (e.key === 'Escape' && lightbox.style.display === 'block') {
+               lightbox.style.display = 'none';
+           }
+       });
     toggleStickyHeader();
     
     console.log('Looking for elements...');
